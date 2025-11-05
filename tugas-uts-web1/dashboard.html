@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Toko Buku Online</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header-dashboard">
+    <div class="header-left">
+      <img src="assets/logo.png" class="logo">
+      <h1>Toko Buku Online</h1>
+    </div>
+
+    <nav>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="stok.html">Stok Buku</a>
+      <a href="checkout.html">Pemesanan</a>
+      <a href="tracking.html">Tracking</a>
+      <button id="logoutBtn" onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="welcome-section">
+      <h2 id="greeting">Selamat Datang!</h2>
+      <p>Temukan berbagai buku pilihan yang tersedia di toko kami 📚</p>
+    </section>
+
+    <section class="preview-section">
+      <h2>Katalog Buku</h2>
+      <div id="bookPreview" class="book-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Toko Buku Online | by Tiara Hayatul Khoir</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    // Tampilkan semua buku dari data.js
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("bookPreview");
+      dataKatalogBuku.forEach((b) => {
+        const card = document.createElement("div");
+        card.className = "book-card";
+        card.innerHTML = `
+          <img src="${b.cover}" alt="${b.namaBarang}">
+          <h3>${b.namaBarang}</h3>
+          <p class="jenis">${b.jenisBarang} (Edisi ${b.edisi})</p>
+          <p class="harga">${b.harga}</p>
+        `;
+        container.appendChild(card);
+      });
+    });
+
+    // Logout
+    function logout() {
+      localStorage.removeItem("userLogin");
+      alert("Logout berhasil!");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Buku</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Katalog Buku</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="stok.html" class="active">Stok</a>
+      <a href="checkout.html">Pemesanan</a>
+      <a href="tracking.html">Tracking</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Informasi Stok Buku</h2>
+
+    <table border="1" id="tableKatalog">
+      <thead>
+        <tr>
+          <th>Kode</th>
+          <th>Judul</th>
+          <th>Jenis</th>
+          <th>Edisi</th>
+          <th>Stok</th>
+          <th>Harga</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <button onclick="addRowForm()">Tambah Stok Baru</button>
+
+    <div id="formAdd" class="hidden">
+      <h3>Tambah Data Buku</h3>
+      <input id="kode" placeholder="Kode Buku">
+      <input id="judul" placeholder="Judul Buku">
+      <input id="jenis" placeholder="Jenis Buku">
+      <input id="edisi" placeholder="Edisi">
+      <input id="stok" type="number" placeholder="Stok">
+      <input id="harga" placeholder="Harga (tanpa Rp)">
+      <button onclick="saveRow()">Simpan</button>
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

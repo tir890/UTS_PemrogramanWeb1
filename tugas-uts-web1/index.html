@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Toko Buku Online</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <main class="login-container">
+    <h1>Toko Buku Online</h1>
+    <h2>Login</h2>
+
+    <form id="loginForm" class="login-form">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Masukkan email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Masukkan password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="login-extra">
+      <a href="#" id="btnForgot" onclick="openModal('modalForgot')">Lupa Password?</a>
+      <a href="#" id="btnDaftar" onclick="openModal('modalDaftar')">Daftar</a>
+    </div>
+  </main>
+
+  <!-- MODAL LUPA PASSWORD -->
+  <div class="modal hidden" id="modalForgot">
+    <div class="modal-content">
+      <h3>Lupa Password</h3>
+      <p>Masukkan email kamu untuk reset password:</p>
+      <input type="email" placeholder="Email terdaftar">
+      <div class="modal-actions">
+        <button onclick="closeModal('modalForgot')">Kirim</button>
+        <button onclick="closeModal('modalForgot')">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DAFTAR -->
+  <div class="modal hidden" id="modalDaftar">
+    <div class="modal-content">
+      <h3>Daftar Akun Baru</h3>
+      <input type="text" placeholder="Nama Lengkap">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <div class="modal-actions">
+        <button onclick="closeModal('modalDaftar')">Daftar</button>
+        <button onclick="closeModal('modalDaftar')">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    // Modal Handling (simple)
+    function openModal(id) {
+      document.getElementById(id).classList.remove("hidden");
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
